@@ -7,26 +7,54 @@
 
 
 int main(void){
+    int ba[100];
     int stats[100];
     int hit = 0;
     int out = 0;
     Bases base;
     Score score = {0};
     for (int i = 0; i < 30; i++) {
-      stats[i] = 1;
+      ba[i] = 1;
     }
     for (int i = 30; i < 100; i++){
-      stats[i] = 0;
+      ba[i] = 0;
     }
 
+    for (int i = 0; i < 30; i++) {
+      stats[i] = 1;
+    }
+    for (int i = 0; i < 30; i++) {
+      stats[i] = 2;
+    }
+    for (int i = 0; i < 30; i++) {
+      stats[i] = 3;
+    }
+    for (int i = 0; i < 30; i++) {
+      stats[i] = 4;
+    }
+    
     srand(time(NULL));
 
     while(out != 27){
       while(out < 3 ){
-        int num = rand() % 100;
-        if (stats[num] == 1){
+        int a = rand() % 100;
+        int b = rand() % 100;
+        if (ba[a] == 1){
           hit++;
-          single(&base, &score);
+          switch(stats[b]){
+            case 1:
+              single(&base, &score);
+              break;
+            case 2:
+              double(&base, &score);
+              break;
+            case 3:
+              triple(&base, &score);
+              break;
+            case 4:
+              home_run(&base, &score);
+              break;   
+          }
         }
         else out++;
         base_reset(out,&base);
