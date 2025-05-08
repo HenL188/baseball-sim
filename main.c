@@ -20,16 +20,16 @@ int main(void){
       ba[i] = 0;
     }
 
-    for (int i = 0; i < 30; i++) {
+    for (int i = 0; i < 59; i++) {
       stats[i] = 1;
     }
-    for (int i = 0; i < 30; i++) {
+    for (int i = 59; i < 75; i++) {
       stats[i] = 2;
     }
-    for (int i = 0; i < 30; i++) {
+    for (int i = 75; i < 79; i++) {
       stats[i] = 3;
     }
-    for (int i = 0; i < 30; i++) {
+    for (int i = 79; i < 100; i++) {
       stats[i] = 4;
     }
     
@@ -46,7 +46,7 @@ int main(void){
               single(&base, &score);
               break;
             case 2:
-              double(&base, &score);
+              _double(&base, &score);
               break;
             case 3:
               triple(&base, &score);
@@ -57,7 +57,7 @@ int main(void){
           }
         }
         else out++;
-        base_reset(out,&base);
+        if (out == 3) base_reset(&base);
       }
         out++;
       }

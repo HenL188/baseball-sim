@@ -11,9 +11,9 @@ typedef struct Score {
 } Score;
 
 
-void base_reset(int out, Bases *base);
+void base_reset(Bases *base);
 
 void single(Bases *base, Score *score);
-void double(Bases *base, Score *score);
+void _double(Bases *base, Score *score);
 void triple(Bases *base, Score *score);
 void home_run(Bases *base, Score *score);
