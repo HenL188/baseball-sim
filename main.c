@@ -7,243 +7,106 @@
 
 
 int main(void){
-    int ba[100];
-    int stats[100];
+    int ba1[100];
+    int ba2[100];
+    int team1[100];
+    int team2[100];
     int hit = 0;
     int out = 0;
-    Bases base;
+    Bases base = {false};
     Score score = {0};
-    for (int i = 0; i < 40; i++) {
-      ba[i] = 1;
-    }
-    for (int i = 40; i < 100; i++){
-      ba[i] = 0;
+    for (int i = 0; i < 100; i++) {
+      if(i < 40){
+        ba1[i] = 1;
+      }
+      else ba1[i] = 0;
     }
 
-    for (int i = 0; i < 59; i++) {
-      stats[i] = 1;
+    for (int i = 0; i < 100; i++) {
+      if(i < 40){
+        ba2[i] = 1;
+      }
+      else ba2[i] = 0;
     }
-    for (int i = 59; i < 75; i++) {
-      stats[i] = 2;
-    }
-    for (int i = 75; i < 79; i++) {
-      stats[i] = 3;
-    }
-    for (int i = 79; i < 100; i++) {
-      stats[i] = 4;
-    }
-    
+   
+    for (int i = 0; i < 100; i++) {
+      // if statment writen by ai when asked how to condense loop
+      if (i < 59)
+        team1[i] = 1;
+      else if (i < 75)
+        team1[i] = 2;
+      else if (i < 79)
+        team1[i] = 3;
+      else
+        team1[i] = 4;
+      }
+
+    for (int i = 0; i < 100; i++) {
+      if (i < 59)
+        team2[i] = 1;
+      else if (i < 75)
+        team2[i] = 2;
+      else if (i < 79)
+        team2[i] = 3;
+      else
+        team2[i] = 4;
+      }
+
     srand(time(NULL));
 
-    while(out != 27){
-      while(out < 3 ){
-        int a = rand() % 100;
-        int b = rand() % 100;
-        if (ba[a] == 1){
+    while (out != 27) {
+      int a = rand() % 100;
+      int b = rand() % 100;
+      if (ba1[a] == 1) {
           hit++;
-          switch(stats[b]){
-            case 1:
-              single(&base, &score);
-              break;
-            case 2:
-              _double(&base, &score);
-              break;
-            case 3:
-              triple(&base, &score);
-              break;
-            case 4:
-              home_run(&base, &score);
-              break;   
+          switch (team1[b]) {
+              case 1:
+                  single(&base, &score);
+                  break;
+              case 2:
+                  _double(&base, &score);
+                  break;
+              case 3:
+                  triple(&base, &score);
+                  break;
+              case 4:
+                  home_run(&base, &score);
+                  break;
           }
-        }
-        else out++;
-        if (out == 3) base_reset(&base);
-      }
-      while(out < 6 ){
-        int a = rand() % 100;
-        int b = rand() % 100;
-        if (ba[a] == 1){
-          hit++;
-          switch(stats[b]){
-            case 1:
-              single(&base, &score);
-              break;
-            case 2:
-              _double(&base, &score);
-              break;
-            case 3:
-              triple(&base, &score);
-              break;
-            case 4:
-              home_run(&base, &score);
-              break;   
-          }
-        }
-        else out++;
-        if (out == 6) base_reset(&base);
-      }
-      while(out < 9 ){
-        int a = rand() % 100;
-        int b = rand() % 100;
-        if (ba[a] == 1){
-          hit++;
-          switch(stats[b]){
-            case 1:
-              single(&base, &score);
-              break;
-            case 2:
-              _double(&base, &score);
-              break;
-            case 3:
-              triple(&base, &score);
-              break;
-            case 4:
-              home_run(&base, &score);
-              break;   
-          }
-        }
-        else out++;
-        if (out == 9) base_reset(&base);
-      }
-      while(out < 12 ){
-        int a = rand() % 100;
-        int b = rand() % 100;
-        if (ba[a] == 1){
-          hit++;
-          switch(stats[b]){
-            case 1:
-              single(&base, &score);
-              break;
-            case 2:
-              _double(&base, &score);
-              break;
-            case 3:
-              triple(&base, &score);
-              break;
-            case 4:
-              home_run(&base, &score);
-              break;   
-          }
-        }
-        else out++;
-        if (out == 12) base_reset(&base);
-      }
-      while(out < 15 ){
-        int a = rand() % 100;
-        int b = rand() % 100;
-        if (ba[a] == 1){
-          hit++;
-          switch(stats[b]){
-            case 1:
-              single(&base, &score);
-              break;
-            case 2:
-              _double(&base, &score);
-              break;
-            case 3:
-              triple(&base, &score);
-              break;
-            case 4:
-              home_run(&base, &score);
-              break;   
-          }
-        }
-        else out++;
-        if (out == 15) base_reset(&base);
-      }
-      while(out < 18 ){
-        int a = rand() % 100;
-        int b = rand() % 100;
-        if (ba[a] == 1){
-          hit++;
-          switch(stats[b]){
-            case 1:
-              single(&base, &score);
-              break;
-            case 2:
-              _double(&base, &score);
-              break;
-            case 3:
-              triple(&base, &score);
-              break;
-            case 4:
-              home_run(&base, &score);
-              break;   
-          }
-        }
-        else out++;
-        if (out == 18) base_reset(&base);
-      }
-      while(out < 21 ){
-        int a = rand() % 100;
-        int b = rand() % 100;
-        if (ba[a] == 1){
-          hit++;
-          switch(stats[b]){
-            case 1:
-              single(&base, &score);
-              break;
-            case 2:
-              _double(&base, &score);
-              break;
-            case 3:
-              triple(&base, &score);
-              break;
-            case 4:
-              home_run(&base, &score);
-              break;   
-          }
-        }
-        else out++;
-        if (out == 21) base_reset(&base);
-      }
-      while(out < 24 ){
-        int a = rand() % 100;
-        int b = rand() % 100;
-        if (ba[a] == 1){
-          hit++;
-          switch(stats[b]){
-            case 1:
-              single(&base, &score);
-              break;
-            case 2:
-              _double(&base, &score);
-              break;
-            case 3:
-              triple(&base, &score);
-              break;
-            case 4:
-              home_run(&base, &score);
-              break;   
-          }
-        }
-        else out++;
-        if (out == 24) base_reset(&base);
-      }
-        int a = rand() % 100;
-        int b = rand() % 100;
-        if (ba[a] == 1){
-          hit++;
-          switch(stats[b]){
-            case 1:
-              single(&base, &score);
-              break;
-            case 2:
-              _double(&base, &score);
-              break;
-            case 3:
-              triple(&base, &score);
-              break;
-            case 4:
-              home_run(&base, &score);
-              break;   
-         }
-        }
-        else out++;
-      }
-
-    printf("Hit: %i\nOut: %i\n", hit, out);
-    printf("Score: %i\n", score.score);
+      } else out++;
+        // if statment writen by ai when asked how to condense loop
+        if (out % 3 == 0)  base_reset(&base);
+  }
+    printf("Team 1 Hits: %i\n", hit);
+    printf("Team 1 Score: %i\n", score.score);
+  
+    out = 0;
+    hit = 0;
+    score.score = 0;
     
+    while (out != 27) {
+      int a = rand() % 100;
+      int b = rand() % 100;
+      if (ba2[a] == 1) {
+          hit++;
+          switch (team2[b]) {
+              case 1:
+                  single(&base, &score);
+                  break;
+              case 2:
+                  _double(&base, &score);
+                  break;
+              case 3:
+                  triple(&base, &score);
+                  break;
+              case 4:
+                  home_run(&base, &score);
+                  break;
+          }
+      } else out++;
+        if (out % 3 == 0) base_reset(&base);
+  } 
+    printf("Team 2 Hits: %i\n", hit);
+    printf("Team 2 Score: %i\n", score.score);
     return 0;
 }
