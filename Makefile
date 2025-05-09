@@ -1,4 +1,4 @@
-CFLAGS := -Wall -Werror -Wextra -O2 -march=native
+CFLAGS := -Wall -Werror -Wextra -O2 -march=native -lm
 
 all: main run
 

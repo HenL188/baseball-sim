@@ -1,15 +1,22 @@
 #include <stdbool.h>
 
-typedef struct Bases {
+typedef struct {
   bool first;
   bool second;
   bool third;
 } Bases;
 
-typedef struct Score {
+typedef struct {
   int score;
 } Score;
 
+typedef struct {
+  int ba;
+  int ba2;
+} Batting;
+
+
+Batting average();
 
 void base_reset(Bases *base);
 

@@ -1,5 +1,42 @@
 #include "lib.h"
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <math.h>
+#include <ctype.h>
+
+Batting average() {
+    Batting bat = {0};
+    char buff[20];
+    char buff2[20];
+    float ba = 0.0f;
+    float ba2 = 0.0f;
+    float bar = 0.0f;
+    float ba2r = 0.0f;    
+
+    printf("Enter batting average for team 1: ");
+    fgets(buff,sizeof(buff),stdin);
+    
+    printf("Enter batting average for team 2: ");
+    fgets(buff2,sizeof(buff2),stdin);
+
+    buff[strcspn(buff, "\n")] = '\0';
+    buff2[strcspn(buff2, "\n")] = '\0';
+    
+    ba = atof(buff);
+    ba2 = atof(buff2);
+
+    bar = roundf(ba);
+    ba2r = roundf(ba2);
+
+    bat.ba = (int)bar;
+    bat.ba2 = (int)ba2r;
+
+    return bat;
+}
+
+
+
 
 void base_reset(Bases *base){
       base->first = false;
