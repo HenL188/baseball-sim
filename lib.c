@@ -35,6 +35,51 @@ Batting average() {
     return bat;
 }
 
+//ai used to condense
+Percentage percentage(){
+    Percentage p = {0};
+    char buff[20];
+    float s = 0.0f;
+    float d = 0.0f;
+    float t = 0.0f;
+    float s2 = 0.0f;
+    float d2 = 0.0f;
+    float t2 = 0.0f;
+    
+    printf("Enter single percentage for team 1: ");
+    fgets(buff,sizeof(buff),stdin);
+    s = roundf(atof(buff));
+    
+    printf("Enter double percentage for team 1: ");
+    fgets(buff,sizeof(buff),stdin);
+    d = roundf(atof(buff));
+    
+    printf("Enter triple percentage for team 1: ");
+    fgets(buff,sizeof(buff),stdin);
+    t = roundf(atof(buff));
+
+    p.s = (int)s;
+    p.d = s + (int)d;
+    p.t = d + (int)t;
+
+    printf("Enter single percentage for team 2: ");
+    fgets(buff,sizeof(buff),stdin);
+    s2 = roundf(atof(buff));
+    
+    printf("Enter double percentage for team 2: ");
+    fgets(buff,sizeof(buff),stdin);
+    d2 = roundf(atof(buff));
+    
+    printf("Enter triple percentage for team 2: ");
+    fgets(buff,sizeof(buff),stdin);
+    t2 = roundf(atof(buff));
+
+    p.s2 = (int)s2;
+    p.d2 = s2 + (int)d2;
+    p.t2 = d2 + (int)t2;
+
+    return p;
+}
 
 
 

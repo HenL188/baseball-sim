@@ -15,8 +15,17 @@ typedef struct {
   int ba2;
 } Batting;
 
+typedef struct {
+  int s;
+  int d;
+  int t;
+  int s2;
+  int d2;
+  int t2;
+} Percentage;
 
 Batting average();
+Percentage percentage();
 
 void base_reset(Bases *base);
 

@@ -19,6 +19,7 @@ int main(void){
     Score score = {0};
 
     Batting bat = average();
+    Percentage p = percentage();
     
     for (int i = 0; i < 100; i++) {
       if(i < bat.ba){
@@ -36,22 +37,22 @@ int main(void){
    
     for (int i = 0; i < 100; i++) {
       // if statment writen by ai when asked how to condense loop
-      if (i < 59)
+      if (i < p.s)// single percetage
         team1[i] = 1;
-      else if (i < 75)
+      else if (i < p.d) // s + double 
         team1[i] = 2;
-      else if (i < 79)
+      else if (i < p.t) // d + triple
         team1[i] = 3;
       else
         team1[i] = 4;
       }
 
     for (int i = 0; i < 100; i++) {
-      if (i < 59)
+      if (i < p.s2)
         team2[i] = 1;
-      else if (i < 75)
+      else if (i < p.d2)
         team2[i] = 2;
-      else if (i < 79)
+      else if (i < p.t2)
         team2[i] = 3;
       else
         team2[i] = 4;
