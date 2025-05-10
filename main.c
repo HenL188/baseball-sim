@@ -15,6 +15,9 @@ int main(void){
     int team1score = 0;
     int hit = 0;
     int out = 0;
+    int tie = 0;
+    int team1win = 0;
+    int team2win = 0;
     Bases base = {false};
     Score score = {0};
 
@@ -37,11 +40,11 @@ int main(void){
    
     for (int i = 0; i < 100; i++) {
       // if statment writen by ai when asked how to condense loop
-      if (i < p.s)// single percetage
+      if (i < p.s)
         team1[i] = 1;
-      else if (i < p.d) // s + double 
+      else if (i < p.d) 
         team1[i] = 2;
-      else if (i < p.t) // d + triple
+      else if (i < p.t)
         team1[i] = 3;
       else
         team1[i] = 4;
@@ -59,6 +62,8 @@ int main(void){
       }
 
     srand(time(NULL));
+
+    for(int i = 0; i < 1000; i++){
 
     while (out != 27) {
       int a = rand() % 100;
@@ -83,9 +88,7 @@ int main(void){
         // if statment writen by ai when asked how to condense loop
         if (out % 3 == 0)  base_reset(&base);
   }
-    printf("Team 1 Hits: %i\n", hit);
-    printf("Team 1 Score: %i\n", score.score);
-  
+      
     out = 0;
     hit = 0;
     team1score = score.score;
@@ -113,19 +116,21 @@ int main(void){
       } else out++;
         if (out % 3 == 0) base_reset(&base);
   } 
-    printf("Team 2 Hits: %i\n", hit);
-    printf("Team 2 Score: %i\n", score.score);
-
     if (team1score == score.score){
-      puts("Tie");
+      tie++;
     }
     else if(team1score > score.score){
-      puts("Team 1 Wins!");
+      team1win++;
     }
     else {
-      puts("Team 2 Wins!");
+      team2win++;
     }
 
+  }
+
+    printf("Team one wins %i times\n", team1win);
+    printf("Team two wins %i times\n", team2win);
+    printf("Teams tie %i times\n", tie);
         
     return 0;
 }
