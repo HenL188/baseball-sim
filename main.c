@@ -130,7 +130,6 @@ int main(void){
 
     printf("Team one wins %i times\n", team1win);
     printf("Team two wins %i times\n", team2win);
-    // printf("Teams tie %i times\n", tie);
-        
+            
     return 0;
 }
