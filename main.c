@@ -15,7 +15,6 @@ int main(void){
     int team1score = 0;
     int hit = 0;
     int out = 0;
-    int tie = 0;
     int team1win = 0;
     int team2win = 0;
     Bases base = {false};
@@ -65,6 +64,7 @@ int main(void){
 
     for(int i = 0; i < 1000; i++){
 
+    tie:
     while (out != 27) {
       int a = rand() % 100;
       int b = rand() % 100;
@@ -117,7 +117,7 @@ int main(void){
         if (out % 3 == 0) base_reset(&base);
   } 
     if (team1score == score.score){
-      tie++;
+      goto tie;
     }
     else if(team1score > score.score){
       team1win++;
@@ -130,7 +130,7 @@ int main(void){
 
     printf("Team one wins %i times\n", team1win);
     printf("Team two wins %i times\n", team2win);
-    printf("Teams tie %i times\n", tie);
+    // printf("Teams tie %i times\n", tie);
         
     return 0;
 }
